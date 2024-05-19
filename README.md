@@ -4,4 +4,5 @@ Extra olarak tanımladığım Gender() fonksiyonu, parametreye girilen tc kimlik
 Projelerde bu gibi doğrulamaları kolaylıkla yapmanız için bu kodu kullanabilirsiniz.
 
 Örnek Kullanım : IsValidTCKimlikNo("01234567891") => return true or false 
+
 Gender("01234567891") => return Erkek or Bayan as Enum
