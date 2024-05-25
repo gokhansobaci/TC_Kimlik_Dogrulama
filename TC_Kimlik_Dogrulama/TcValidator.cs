@@ -9,22 +9,30 @@ namespace TC_Kimlik_Dogrulama
 {
     public class TcValidator
     {
-        public static bool IsValidTCKimlikNo(string tcKimlikNo)
+        public static TCIdentity ValidateIdentity(string TCId)
         {
-            
-            if (tcKimlikNo.Length != 11) return false;
+            if (!ValidateString(TCId) || !IsCorrectIdentity(TCId))
+            {
+                throw new Exception("Incorrect Identity number.");
+            }
 
-            if (!long.TryParse(tcKimlikNo,out _)) return false;
+            var obj = new TCIdentity
+            {
+                IsValid = true,
+                Gender = GenderControl(TCId)
+            };
 
-            if (tcKimlikNo[0] == '0') return false;
-
+            return obj;
+        }
+        private static bool IsCorrectIdentity(string tcID)
+        {
             int sumOdd = 0; 
             int sumEven = 0;
             int totalSum = 0; 
 
             for(int i = 0; i <10; i++)
             {
-                int digit = tcKimlikNo[i] - '0';
+                int digit = tcID[i] - '0';
                 totalSum += digit;
 
                 if (i % 2 == 0) sumOdd += digit;
@@ -35,27 +43,25 @@ namespace TC_Kimlik_Dogrulama
             int t1 = (sumOdd * 7 - sumEven) % 10; 
             int t2 = totalSum % 10;
 
-            if (t1 != tcKimlikNo[9] - '0' || t2 != tcKimlikNo[10] - '0') return false; 
+            if (t1 != tcID[9] - '0' || t2 != tcID[10] - '0') return false; 
+            return true;
+        }
+        private static bool ValidateString(string tcID)
+        {
+            if (tcID.Length != 11) return false;
+
+            if (!long.TryParse(tcID, out _)) return false;
+
+            if (tcID[0] == '0') return false;
+
             return true;
         }
 
-
-        public static Gender GenderControl(string tcKimlikNo)
+        public static EGender GenderControl(string tcKimlikNo)
         {
-            if (tcKimlikNo.Length != 11) return Gender.Bad_Code;
-
-            if (!long.TryParse(tcKimlikNo, out _)) return Gender.Bad_Code;
-
-            if (tcKimlikNo[0] == '0') return Gender.Bad_Code;
-
             int digit = tcKimlikNo[9] - '0';
 
-            var value = digit >= 5 && digit <= 9 ? Gender.Erkek : Gender.Kadın;
-
-            return value;
+            return digit >= 5 && digit <= 9 ? EGender.Erkek : EGender.Kadın;
         }
-
-
-
     }
 }

@@ -5,6 +5,11 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TC_Kimlik_Dogrulama", "TC_Kimlik_Dogrulama\TC_Kimlik_Dogrulama.csproj", "{F634E083-5CC5-4FF9-A5E9-A521B0A65A2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TC_Kimlik_Dogrulama.Tests", "TC_Kimlik_Dogrulama.Tests\TC_Kimlik_Dogrulama.Tests.csproj", "{76951B00-64FA-412D-BE8D-54148C34C34E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F634E083-5CC5-4FF9-A5E9-A521B0A65A2F} = {F634E083-5CC5-4FF9-A5E9-A521B0A65A2F}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{F634E083-5CC5-4FF9-A5E9-A521B0A65A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F634E083-5CC5-4FF9-A5E9-A521B0A65A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F634E083-5CC5-4FF9-A5E9-A521B0A65A2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76951B00-64FA-412D-BE8D-54148C34C34E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76951B00-64FA-412D-BE8D-54148C34C34E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76951B00-64FA-412D-BE8D-54148C34C34E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76951B00-64FA-412D-BE8D-54148C34C34E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
