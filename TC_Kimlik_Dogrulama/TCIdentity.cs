@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace TC_Kimlik_Dogrulama
 {
-    public enum Gender
+    public class TCIdentity
     {
-        Erkek,
-        Kadın,
-        Bad_Code
+        public bool IsValid { get; set; }
+        public EGender Gender { get; set; }  
     }
 }
